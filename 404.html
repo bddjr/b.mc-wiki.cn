@@ -1,6 +1,10 @@
 <p>等待JavaScript</p>
 <script>
-  u=location.href.replace(location.host,'wiki.biligame.com/mc');
-  document.querySelector("body>p").innerHTML="正在重定向至 "+u;
-  location.href=u;
+L=location; P=(a)=> document.querySelector("body>p").innerHTML=a
+if(L.protocol=='file:') P('以本地文件目录形式打开，不会重定向。')
+else{
+  U=L.href.replace(L.protocol+'//'+L.host,'https://wiki.biligame.com/mc')
+  P("正在重定向至<br/>"+U)
+  L.href=U
+}
 </script>
